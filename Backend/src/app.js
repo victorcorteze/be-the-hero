@@ -1,13 +1,16 @@
 const express = require('express'); /*express é um pacote*/
 const routes = require('./routes'); /*routes é o arquivo que ta na mesma pasta*/
 const cors = require('cors');
+const { errors } = require('celebrate');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
+module.exports = app;
 /*
 Rota/Recurso
 
@@ -34,4 +37,4 @@ NoSQL: MongoDB, CouchDB
 
 
 
-app.listen(3333);
+
